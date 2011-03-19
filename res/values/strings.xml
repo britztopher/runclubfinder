@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MainActivity</string>
+    <string-array name="main_menu_array">
+        <item>FIND A RACE</item>
+        <item>FIND A RUN CLUB</item>
+        <item>CALCULATE PACE TIMES</item>
+        <item>TRAINING</item>
+    </string-array>
+    <string name="loc_find_zip">Where You At?</string>
+    <string name="enter_loc">Enter Zip Code or City, State</string>
+    <string name="finding_loc">Finding Location...</string>
+</resources>
