@@ -29,6 +29,7 @@ public class MainActivity extends Activity implements View.OnClickListener
     private List<Address> addresses = null;
     private EditText entry;
     private Button mButton;
+    private Intent myIntent;
     
     /** Called when the activity is first created. */
     @Override
@@ -43,7 +44,7 @@ public class MainActivity extends Activity implements View.OnClickListener
         
     }
    public void onClick(View view) {                
-        Intent myIntent = new Intent(getApplicationContext(), MainMenu.class);
+        myIntent = new Intent(getApplicationContext(), MainMenu.class);
            
         coder = new Geocoder(this);
         
@@ -62,7 +63,7 @@ public class MainActivity extends Activity implements View.OnClickListener
         }
 
         new GeocodeTask().execute(isCurrentLocation ? USE_CURRENT_LOCATION : USE_LOCATION_NAME);
-        
+        startActivity(myIntent);
         
     }
    
@@ -71,6 +72,7 @@ public class MainActivity extends Activity implements View.OnClickListener
         
         try{
             addresses = coder.getFromLocationName(locationName, 1);
+            myIntent.putExtra("ADDRESS", addresses.get(0).toString());
         }catch (Exception e){
             e.printStackTrace();
             result = ERROR_GEOCODER;
@@ -130,46 +132,37 @@ public class MainActivity extends Activity implements View.OnClickListener
         private ProgressDialog progress = null;
 
         @Override
-        protected Integer doInBackground(Integer... task)
-        {
+        protected Integer doInBackground(Integer... task){
                 Integer result = 0;
 
-                switch(task[0])
-                {
-                        case USE_CURRENT_LOCATION:
-                        {
+                switch(task[0]){
+                    case USE_CURRENT_LOCATION:{
 //                                result = getcurrentLocationInfo();
 //
 //                                break;
-                        }
-                        case USE_LOCATION_NAME:
-                        {
-                                result = getLocationInfo(locationName);
-
-                                break;
-                        }
+                    }
+                    case USE_LOCATION_NAME:{
+                            result = getLocationInfo(locationName);
+                            break;
+                    }
                 }
 
                 return result;
         }
 
         @Override
-        protected void onCancelled()
-        {
+        protected void onCancelled(){
                 super.onCancelled();
         }
 
         @Override
-        protected void onPostExecute(Integer result)
-        {
+        protected void onPostExecute(Integer result){
             progress.dismiss();
 
-            if(null!= addresses && addresses.size() > 0)
-            {
+            if(null!= addresses && addresses.size() > 0){
                     ((TextView)findViewById(R.id.location_info)).setText(getGeocoderInfo(addresses));
             }
-            else
-            {
+            else{
                     showDialog(getErrorDialogIdFromCode(result));
             }
 
