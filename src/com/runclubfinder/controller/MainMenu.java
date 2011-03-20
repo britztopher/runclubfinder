@@ -45,9 +45,11 @@ public class MainMenu extends ListActivity implements ListView.OnItemClickListen
         
         
         switch(position){
-            case 4:
+            case 4:{
                 myIntent = new Intent(this, DCRRC.class);
                 startActivity(myIntent);
+                break;
+            }
                 
         }
         Toast.makeText(getApplicationContext(),mIntentString.getLocality(), Toast.LENGTH_SHORT).show();

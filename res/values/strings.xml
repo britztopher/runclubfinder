@@ -15,9 +15,8 @@
         <item>CALCULATE PACE TIMES</item>
         <item>WEEKLY WORKOUT</item>
     </string-array>
-    
-    
     <string name="loc_find_zip">Where You At?</string>
     <string name="enter_loc">Enter Zip Code or City, State</string>
     <string name="finding_loc">Finding Location...</string>
+    <string name="club_name">Where You At?</string>
 </resources>

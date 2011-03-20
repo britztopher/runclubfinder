@@ -5,9 +5,9 @@
 
 package com.runclubfinder.controller;
 
+import com.runclubfinder.common.RunClubInfo;
 import android.app.ListActivity;
 import android.content.Intent;
-import android.location.Address;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -42,6 +42,14 @@ public class DCRRC extends ListActivity implements ListView.OnItemClickListener{
       // When clicked, show a toast with the TextView text
 
         Bundle extras = getIntent().getExtras();
+        System.out.println(position);
+        switch(position){
+            case 0: {
+               myIntent = new Intent(this, RunClubInfo.class);
+               startActivity(myIntent);
+               break;
+            }
+        }
 
         Toast.makeText(getApplicationContext(),"DCRRC", Toast.LENGTH_SHORT).show();
     }

@@ -17,5 +17,6 @@
         </activity>
         <activity android:name=".MainMenu"></activity>
         <activity android:name=".DCRRC"></activity>
+        <activity android:name="com.runclubfinder.common.RunClubInfo"></activity>
     </application>
 </manifest> 
