@@ -44,11 +44,9 @@ public class MainActivity extends Activity implements View.OnClickListener
         
     }
    public void onClick(View view) {                
-        myIntent = new Intent(getApplicationContext(), MainMenu.class);
+        myIntent = new Intent(this, MainMenu.class);
            
         coder = new Geocoder(this);
-        
-        
         String locationName = entry.getText().toString();
         
         boolean isCurrentLocation = false;
@@ -63,7 +61,7 @@ public class MainActivity extends Activity implements View.OnClickListener
         }
 
         new GeocodeTask().execute(isCurrentLocation ? USE_CURRENT_LOCATION : USE_LOCATION_NAME);
-        startActivity(myIntent);
+
         
     }
    
@@ -72,7 +70,8 @@ public class MainActivity extends Activity implements View.OnClickListener
         
         try{
             addresses = coder.getFromLocationName(locationName, 1);
-            myIntent.putExtra("ADDRESS", addresses.get(0).toString());
+            myIntent.putExtra("ADDRESS", addresses.get(0));
+            startActivity(myIntent);
         }catch (Exception e){
             e.printStackTrace();
             result = ERROR_GEOCODER;

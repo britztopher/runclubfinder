@@ -19,41 +19,31 @@ import android.widget.Toast;
  *
  * @author britzdawg
  */
-public class MainMenu extends ListActivity implements ListView.OnItemClickListener{
+public class DCRRC extends ListActivity implements ListView.OnItemClickListener{
 
-    private Address mIntentString;
     private Intent myIntent;
     
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
-        String[] mainMenu = getResources().getStringArray(R.array.main_menu_array);
-        setListAdapter(new ArrayAdapter<String>(this, R.layout.start_list, mainMenu));
+                
+        String[] runClubMenu = getResources().getStringArray(R.array.run_club_menu);
+        setListAdapter(new ArrayAdapter<String>(this, R.layout.runclub, runClubMenu));
         
         ListView lv = getListView();
         lv.setOnItemClickListener(this);
         
+        // ToDo add your GUI initialization code here        
     }
+    
     public void onItemClick(AdapterView<?> parent, View view,
         int position, long id) {
       // When clicked, show a toast with the TextView text
 
         Bundle extras = getIntent().getExtras();
-        mIntentString =(Address)extras.get("ADDRESS");
-        
-        
-        switch(position){
-            case 4:
-                myIntent = new Intent(this, DCRRC.class);
-                startActivity(myIntent);
-                
-        }
-        Toast.makeText(getApplicationContext(),mIntentString.getLocality(), Toast.LENGTH_SHORT).show();
 
-
-   
+        Toast.makeText(getApplicationContext(),"DCRRC", Toast.LENGTH_SHORT).show();
     }
- 
+
 }

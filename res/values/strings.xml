@@ -6,7 +6,17 @@
         <item>FIND A RUN CLUB</item>
         <item>CALCULATE PACE TIMES</item>
         <item>TRAINING</item>
+        <item>DC ROAD RUNNERS</item>
     </string-array>
+    <string-array name="run_club_menu">
+        <item>INFO</item>
+        <item>SPONSERED RACES</item>
+        <item>WEEKEND LONG RUNS</item>
+        <item>CALCULATE PACE TIMES</item>
+        <item>WEEKLY WORKOUT</item>
+    </string-array>
+    
+    
     <string name="loc_find_zip">Where You At?</string>
     <string name="enter_loc">Enter Zip Code or City, State</string>
     <string name="finding_loc">Finding Location...</string>

@@ -16,5 +16,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainMenu"></activity>
+        <activity android:name=".DCRRC"></activity>
     </application>
 </manifest> 
