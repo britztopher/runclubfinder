@@ -6,9 +6,12 @@
         <TextView
             android:id="@+id/club_name"
             android:layout_column="1"
-            android:padding="3dip" />
+            android:padding="3dip" 
+            android:textSize="18sp"/>
     </TableRow>
-    
+        <View
+        android:layout_height="3dip"
+        android:background="#FF909090" />
     <TableRow>
         <TextView
             android:layout_column="1"

@@ -22,10 +22,9 @@ public class RunClubInfo extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.runclubinfo);
 
-        String dcrrc = "DCRRC";
         TextView myTextView = (TextView) findViewById(R.id.club_name); 
-        myTextView.setText("My double value is " +dcrrc);
-
+        myTextView.setText("DC Road Runners Info");
+        
         // ToDo add your GUI initialization code here        
     }
 
