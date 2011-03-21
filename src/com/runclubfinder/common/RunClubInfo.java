@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 import com.runclubfinder.controller.R;
+import com.runclubfinder.utils.WebPageUtils;
 
 /**
  *
@@ -22,8 +23,17 @@ public class RunClubInfo extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.runclubinfo);
 
+        String dcrrc = "DC Road Runners Info";
         TextView myTextView = (TextView) findViewById(R.id.club_name); 
-        myTextView.setText("DC Road Runners Info");
+        myTextView.setText(dcrrc);
+        
+        WebPageUtils wpu = new WebPageUtils();
+        
+        String src = wpu.getWebPageSource();   
+        System.out.println(src);
+        
+        TextView myHtmlSrc = (TextView) findViewById(R.id.html_src); 
+        myHtmlSrc.setText(src);
         
         // ToDo add your GUI initialization code here        
     }
