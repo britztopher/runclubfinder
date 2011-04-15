@@ -62,7 +62,7 @@ public class MainActivity extends Activity implements View.OnClickListener
 
         new GeocodeTask().execute(isCurrentLocation ? USE_CURRENT_LOCATION : USE_LOCATION_NAME);
 
-        
+        onDestroy();
     }
    
     private int getLocationInfo(final String locationName){

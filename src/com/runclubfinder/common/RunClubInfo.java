@@ -17,6 +17,7 @@ import com.runclubfinder.utils.WebPageUtils;
  */
 public class RunClubInfo extends Activity {
 
+     String INFO_URL = "http://www.dcroadrunners.org/about-us/membership-information.html";
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -24,13 +25,22 @@ public class RunClubInfo extends Activity {
         setContentView(R.layout.runclubinfo);
 
         String dcrrc = "DC Road Runners Info";
-//        TextView myTextView = (TextView) findViewById(R.id.club_name);
-//        myTextView.setText(dcrrc);
+        String info = "";
+    
+        TextView myTextView = (TextView) findViewById(R.id.club_name);
+        myTextView.setText(dcrrc);
+
+        TextView club_info = (TextView) findViewById(R.id.club_info);
+
         
-        WebPageUtils wpu = new WebPageUtils();
-        
-        String src = wpu.getWebPageSource();   
-        System.out.println(src);
+        try{
+            
+            info = WebPageUtils.getElementsFromName("/p", INFO_URL);
+            club_info.setText(info);
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
         
 //        TextView myHtmlSrc = (TextView) findViewById(R.id.html_src);
 //        myHtmlSrc.setText(src);

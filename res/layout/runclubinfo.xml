@@ -13,10 +13,13 @@
         android:layout_height="3dip"
         android:background="#FF909090" />
     <TableRow>
-        <TextView
+       <TextView
+            android:id="@+id/club_info"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
             android:layout_column="1"
-            android:text="Save..."
-            android:padding="3dip" />
+            android:padding="3dip"
+            android:textSize="18sp"/>
         <TextView
             android:text="Ctrl-S"
             android:gravity="right"
